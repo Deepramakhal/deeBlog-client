@@ -92,7 +92,6 @@ function Signup() {
         onChange={handleFileChange}
         accept='image/*'
         name="profilePicture"
-        value={profilePicture}
         required
         className='file:rounded-full file:p-4'
         />
