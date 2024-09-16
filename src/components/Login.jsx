@@ -18,7 +18,7 @@ function Login() {
   useEffect(()=>{
     const loginUser = async () =>{
       try {
-        const response = await axios.post('/api/users/login',{
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/login}`,{
           username,
           email:email.toLowerCase(),
           password
