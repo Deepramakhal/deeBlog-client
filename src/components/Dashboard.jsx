@@ -42,7 +42,7 @@ const Dashboard = () => {
   
   const updateBlog = async () =>{
     try {
-      const response = await axios.patch(`/api/blogs/${blogId}`,{
+      const response = await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/blogs/${blogId}`,{
         title:newTitle,
         content:newContent,
         category:newCategory
