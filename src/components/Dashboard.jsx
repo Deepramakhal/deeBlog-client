@@ -14,8 +14,8 @@ const Dashboard = () => {
   useEffect(()=>{
       const fetchBlogs = async()=>{
         try {
-          const {data:blogs} = await axios.get('/api/blogs/')
-          const {data:userDetails} = await axios.get('/api/users/get-details')
+          const {data:blogs} = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blogs/`)
+          const {data:userDetails} = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users/get-details`)
 
           const username = blogs.data.map((e)=>{
             return e.writer.username
