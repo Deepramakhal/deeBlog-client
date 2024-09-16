@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const { data: blogs } = await axios.get('/api/blogs/');
+        const { data: blogs } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blogs/`);
         setBlogs(blogs.data);
       } catch (error) {
         console.error(error);
