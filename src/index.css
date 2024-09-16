@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.navigation-items{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.navigation-items::after{
+    content: '';
+    position: absolute;
+    left: 59%;
+    bottom: 0;
+    height: 2px;
+    background-color: cyan;
+    width: 0;
+    transition: width 0.5s ease-out, left 0.5s ease-out;
+}
+.navigation-items:hover::after{
+    width: 100%;
+    left: 0;
+}
+
+
