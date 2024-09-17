@@ -18,7 +18,7 @@ function Profile() {
   // Disdplay profile details funcitanality
   useEffect(()=>{
     const getUserDetails = async ()=>{
-      const response = await axios.get('/api/users/get-details')
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users/get-details`)
   
       setUsername(response.data.data.username)
       setEmail(response.data.data.email)
@@ -32,7 +32,7 @@ function Profile() {
   }
   
   const editDetails = async()=>{
-    const response = await axios.patch('/api/users/change-details',{
+    const response = await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/users/change-details`,{
       username:newUsername?newUsername:username,
       email:newEmail?newEmail:email
     })
@@ -52,7 +52,7 @@ function Profile() {
     formData.append('profilePicture',file)
     
     try {
-      const response = await axios.patch('/api/users/change-dp',formData,{
+      const response = await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/users/change-dp`,formData,{
         headers:{
           'Content-Type':'multipart/form-data'
         }

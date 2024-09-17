@@ -4,7 +4,7 @@ import axios from "axios"
 export const fetchResult = createAsyncThunk(
     'search/fetchResult',
     async(searchTerm) =>{
-        const response = await axios.get('api/blogs/search',{
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blogs/search`,{
             params:{
                 q:searchTerm
             }

@@ -26,8 +26,7 @@ function Signup() {
     formData.append('username',username);
     formData.append('email',email);
     formData.append('password',checkedPassword);
-    if(profilePicture){
-      formData.append('profilePicture',profilePicture)}
+    formData.append('profilePicture',profilePicture);
 
     try {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/register`,formData,{

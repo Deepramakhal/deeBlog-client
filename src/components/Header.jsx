@@ -30,7 +30,7 @@ function Header(){
 
   const logoutUser = async ()=>{
     try {
-      const response = await axios.post('/api/users/logout')
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/logout`)
 
       if(response.status === 200){
         logout()

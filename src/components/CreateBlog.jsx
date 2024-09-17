@@ -19,7 +19,7 @@ function CreateBlog() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/blogs/postblog', {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/blogs/postblog`, {
         title, content, category
       })
 
@@ -30,7 +30,7 @@ function CreateBlog() {
       console.log(response)
     } catch (error) {
       alert("You need to login first to create blog")
-      // navigate('/login')
+      navigate('/login')
     }
   } 
 
