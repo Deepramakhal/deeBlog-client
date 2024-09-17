@@ -29,6 +29,7 @@ const Home = () => {
                   <h1 className='p-2 font-bold'>{blog.writer.username}</h1>
                 </div>
                 </legend>
+                <p className='w-full text-left'>Category:{blog.category}</p>
                 <h1 className='w-full text-left m-1 text-2xl font-bold '>{blog.title}</h1>
                 <p className='w-full text-lg text-justify'>{blog.content}</p>
               </fieldset>

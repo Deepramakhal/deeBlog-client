@@ -30,7 +30,7 @@ function App() {
     <AuthProvider>
     <div
       id="screen-div"
-      className="min-h-screen max-w-screen  flex flex-col overflow-hidden bg-[#074161]"
+      className="min-h-screen max-w-screen  flex flex-col overflow-hidden bg-gradient-to-br from-green-700 to-blue-500 selection:bg-green-400 selection:text-black"
     >
       <header className="sticky top-0 z-50">
         <Header />

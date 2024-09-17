@@ -18,7 +18,9 @@ const route = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
       <Route path='' element={<Home/>} />
-      <Route path='search' element={<SearchResult/>} />
+      <Route path='search'>
+        <Route path=':searchTerm' element={<SearchResult/>} />
+       </Route> 
       <Route path='signup' element={<Signup />} />
       <Route path='/users/me' element={<Profile/>} />
       <Route path='login' element={<Login/>} />

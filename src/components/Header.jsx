@@ -25,7 +25,7 @@ function Header(){
     e.preventDefault()
     dispatch(setSearchTerm(input));
     dispatch(fetchResult(input));
-    navigate('search')
+    navigate('/search/'+input)
   }
 
   const logoutUser = async ()=>{
@@ -97,6 +97,14 @@ function Header(){
                 className={({isActive})=>`${isActive?"text-cyan-300":"text-white"}`}
                 >About us</NavLink>
               </li>
+              <li className='navigation-items'>
+                {isLoggedIn && (
+                  <NavLink to='/blogs/create'
+                  className={({isActive})=>`${isActive?"text-cyan-300":"text-white"}`}>
+                    Create blog
+                  </NavLink>
+                )}
+              </li>
               <li className='navigation-items relative'>
                 {isLoggedIn? (
                   <svg id='profile-icon' onClick={()=>setMenuOpen(!menuOpen)} width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +131,7 @@ function Header(){
       </div>)}
       {
           passwordChangepopup && (
-            <div className='w-screen h-screen bg-[#202020] absolute flex justify-center items-center'>
+            <div className='w-screen h-full  bg-transparent from-green-700 to-blue-500 absolute top-80 flex justify-center items-center'>
               <div className='w-[40%] h-fit bg-[#202020] p-4 rounded-md border-2 border-white'>
                 <form onSubmit={changePassword} className='w-full'>
                   <div className='w-full flex flex-col'>
