@@ -57,6 +57,8 @@ function Profile() {
           'Content-Type':'multipart/form-data'
         }
       })
+      console.log(response);
+      
       setProfilePicture(response.data.data.profilePicture)
     } catch (error) {
       console.log(error)
