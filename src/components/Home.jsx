@@ -1,6 +1,7 @@
 /*eslint-disable*/
 import React, { useContext,useState,useEffect } from 'react';
 import axios from 'axios'
+import dayjs from 'dayjs'
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -17,6 +18,14 @@ const Home = () => {
     fetchBlogs();
   }, []);
 
+  const uploadDate = (blog) => {
+    return dayjs(blog.createdAt).format('DD/MM/YYYY');
+  };
+  const updatedON = (blog) => {
+    return dayjs(blog.updatedAt).format('DD/MM/YYYY');
+  };
+
+
   return (
       <div className='w-[90%] h-full relative'>
         <div id='home-page-content' className="flex flex-col bg-white p-4  w-full rounded-lg gap-2 absolute">
@@ -32,6 +41,8 @@ const Home = () => {
                 <p className='w-full text-left'>Category:{blog.category}</p>
                 <h1 className='w-full text-left m-1 text-2xl font-bold '>{blog.title}</h1>
                 <p className='w-full text-lg text-justify'>{blog.content}</p>
+                <p className='text-left sm:text-center sm:w-full   mt-2 bg-gray-400 md:w-fit text-sm rounded-md px-4 font-mono'>Written on {uploadDate(blog)}
+                  <br/>Updated on {updatedON(blog)}</p>
               </fieldset>
             ))
           }
