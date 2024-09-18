@@ -1,6 +1,7 @@
 /*eslint-disable*/
 import React from 'react'
 import { useSelector } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 function SearchResult() {
     const searchTerm = useSelector((state)=>state.search.searchTerm);
@@ -49,7 +50,13 @@ function SearchResult() {
                 </div>
             )
         } else {
-            content = <p>Search karke kuch bhee nehi mila</p>
+            content = (
+                <div className='w-[90vw] flex h-fit px-2 justify-center items-center border-2 border-black mb-2 py-4 bg-white rounded-lg'>
+                <h1 className='font-bold w-[70%]'>No blogs found.........click →</h1>
+                <Link to="/blogs/create" 
+                className='hover:bg-opacity-100  w-fit h-fit p-4 bg-gradient-to-br from-green-600 to-blue-500 text-white   rounded-tl-full rounded-br-full rounded-tr-lg rounded-bl-lg'>Click here to create blog on '{searchTerm}'</Link>
+              </div>
+            )
         }
     } else if(status === 'failed'){
         content = <p>Error fetching search result</p>
