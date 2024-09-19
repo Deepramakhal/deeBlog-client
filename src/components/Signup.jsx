@@ -93,8 +93,8 @@ function Signup() {
         name="profilePicture"
         required
         className='file:rounded-full file:p-4'
-        placeholder='Choose profile picture'
         />
+        <p>Choos your profile picture</p>
         {passwordCheckingError?(<p>Password and confirm password must be same</p>):(<input type='submit' value='Sign up'/>)}
       </form>
     </div>
