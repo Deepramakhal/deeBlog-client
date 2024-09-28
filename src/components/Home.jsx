@@ -36,7 +36,9 @@ const Home = () => {
       setSeconds((prevSeconds) => {
         if (prevSeconds <= 1) {
           clearInterval(interval);
-          alert("Try to break the refresh button( to wake up the server)!!!");
+          if (blogs.length === 0 ){
+            alert("try to break the refresh button if still the server is not loaded!!!");
+          }
           return 0;
         }
         return prevSeconds - 1;
