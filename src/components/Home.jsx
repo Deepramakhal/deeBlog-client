@@ -73,7 +73,14 @@ const Home = () => {
               <p className='text-center font-bold'>The server is down, can take time upto 50s to 2m to load the contents from the server..</p>
               <button onClick={() => window.location.reload()}
               className='w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Refresh</button>
-
+              <div class="🤚">
+                <div class="👉"></div>
+                <div class="👉"></div>
+                <div class="👉"></div>
+                <div class="👉"></div>
+                <div class="🌴"></div>		
+                <div class="👍"></div>
+              </div>
               <div className='text-3xl border-red-500 border-2 rounded-lg px-6 py-2 animate-pulse'>{formatTime(seconds)}</div>
             </div>
           }
