@@ -5,6 +5,7 @@ import dayjs from 'dayjs'
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
+  const [seconds, setSeconds] = useState(120);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -25,6 +26,25 @@ const Home = () => {
     return dayjs(blog.updatedAt).format('DD/MM/YYYY');
   };
 
+  const formatTime = (secs) => {
+    const minutes = Math.floor(secs / 60);
+    const remainingSeconds = secs % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prevSeconds) => {
+        if (prevSeconds <= 1) {
+          clearInterval(interval);
+          alert("Try to break the refresh button( to wake up the server)!!!");
+          return 0;
+        }
+        return prevSeconds - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
       <div className='w-[90%] h-full relative'>
@@ -45,6 +65,15 @@ const Home = () => {
                   <br/>Updated on {updatedON(blog)}</p>
               </fieldset>
             ))
+          }
+          {
+            blogs.length === 0 && <div className='w-full flex flex-col justify-center items-center gap-10'>
+              <p className='text-center font-bold'>The server is down, can take time upto 50s to 2m to load the contents from the server..</p>
+              <button onClick={() => window.location.reload()}
+              className='w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Refresh</button>
+
+              <div className='text-3xl border-red-500 border-2 rounded-lg px-6 py-2 animate-pulse'>{formatTime(seconds)}</div>
+            </div>
           }
         </div>
       </div>

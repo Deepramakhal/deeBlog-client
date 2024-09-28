@@ -30,14 +30,13 @@ function Login() {
           alert("User logged in")
           navigate('/') 
         } 
-        else setResponseMessage('Login failed..') 
+        else setResponseMessage('Login failed..(check details)'); 
 
         const accesToken = response.data.accessToken || null;
         if(accesToken) localStorage.setItem('accesToken',accesToken)
 
       } catch (error) {
-        console.error("Server failed to log in user")
-        alert("Incorrect details")
+        alert("Server failed to log in user")
       }
     }
 
